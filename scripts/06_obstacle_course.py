@@ -32,7 +32,7 @@ print("✓ Cleared!")
 
 # Obstacle 3: The tunnel (crouch and scoot)
 print("\n3️⃣ Obstacle 3: Low tunnel")
-pyxel.Lights(6, 0)  # Cyan
+pyxel.Lights(6, 0)  # Orange
 print("Getting low...")
 pyxel.Sit()
 pyxel.Wait(0.5)
