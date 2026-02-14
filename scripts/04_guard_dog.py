@@ -8,24 +8,28 @@ pyxel = Pyxel()
 print("🐕 Guard dog mode activated!")
 print("Patrolling the perimeter...")
 
-# Set alert LED color
-pyxel.led_color(0, 255, 0)  # Green = all clear
+# Set alert LED color - green = all clear
+pyxel.Lights(2, 0)  # Green on all parts
+pyxel.Wait(1)
+
+# Enable proximity detection
+pyxel.SetProximity(1)  # Turn on proximity sensor
 
 # Patrol pattern
 def patrol():
     """Patrol in a square pattern"""
     for i in range(4):
         print(f"Patrol leg {i+1}/4")
-        pyxel.walk_forward(steps=5)
-        pyxel.wait(500)
+        pyxel.Forward(6, 0, 0)
+        pyxel.Wait(0.5)
         
         # Check sensors
-        if pyxel.get_distance() < 20:  # If something is close
+        if pyxel.Proximity(1):  # If something is detected
             alert()
             return False
         
-        pyxel.turn_right(degrees=90)
-        pyxel.wait(500)
+        pyxel.Turn(1, 90)  # Turn right 90 degrees
+        pyxel.Wait(0.5)
     
     return True
 
@@ -35,25 +39,25 @@ def alert():
     
     # Flash red lights
     for i in range(5):
-        pyxel.led_color(255, 0, 0)
-        pyxel.wait(200)
-        pyxel.led_color(0, 0, 0)
-        pyxel.wait(200)
+        pyxel.Lights(1, 0)  # Red on all parts
+        pyxel.Wait(0.2)
+        pyxel.Lights(0, 0)  # Off
+        pyxel.Wait(0.2)
     
     # Bark
-    pyxel.play_sound("bark")
-    pyxel.wait(500)
+    pyxel.PlaySound(1, 1, 1)  # Bark sound
+    pyxel.Wait(0.5)
     
     # Defensive stance
     print("Taking defensive stance...")
-    pyxel.sit()
-    pyxel.wait(1000)
+    pyxel.Sit()
+    pyxel.Wait(1)
     
-    # More barking
+    # More barking with red lights
     for i in range(3):
-        pyxel.play_sound("bark")
-        pyxel.led_color(255, 0, 0)
-        pyxel.wait(500)
+        pyxel.PlaySound(1, 1, 1)  # Bark
+        pyxel.Lights(1, 0)  # Red
+        pyxel.Wait(0.5)
 
 # Run patrol
 patrol_count = 0
@@ -70,13 +74,13 @@ while patrol_count < max_patrols:
     
     if patrol_count < max_patrols:
         print("Patrol complete. Resting briefly...")
-        pyxel.sit()
-        pyxel.wait(2000)
-        pyxel.stand()
-        pyxel.wait(500)
+        pyxel.Sit()
+        pyxel.Wait(2)
+        pyxel.StandUp()
+        pyxel.Wait(0.5)
 
 # End patrol
 print("\n✅ Guard duty complete!")
-pyxel.led_color(0, 0, 255)  # Blue = off duty
-pyxel.sit()
-pyxel.wait(1000)
+pyxel.Lights(4, 0)  # Blue = off duty
+pyxel.Sit()
+pyxel.Wait(1)

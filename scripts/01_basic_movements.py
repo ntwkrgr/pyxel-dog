@@ -7,42 +7,42 @@ pyxel = Pyxel()
 
 # Basic forward movement
 print("Walking forward...")
-pyxel.walk_forward(steps=5)
-pyxel.wait(1000)  # Wait 1 second
+pyxel.Forward(6, 0, 0)
+pyxel.Wait(1)  # Wait 1 second
 
 # Turn left
 print("Turning left...")
-pyxel.turn_left(degrees=90)
-pyxel.wait(1000)
+pyxel.Turn(0, 90)  # 0 = left, 90 degrees
+pyxel.Wait(1)
 
 # Walk forward again
 print("Walking forward...")
-pyxel.walk_forward(steps=3)
-pyxel.wait(1000)
+pyxel.Forward(4, 0, 0)
+pyxel.Wait(1)
 
 # Turn right
 print("Turning right...")
-pyxel.turn_right(degrees=90)
-pyxel.wait(1000)
+pyxel.Turn(1, 90)  # 1 = right, 90 degrees
+pyxel.Wait(1)
 
 # Walk backwards
 print("Walking backwards...")
-pyxel.walk_backward(steps=3)
-pyxel.wait(1000)
+pyxel.Backward(4, 0, 0)
+pyxel.Wait(1)
 
 # Sit down
 print("Sitting down...")
-pyxel.sit()
-pyxel.wait(2000)
+pyxel.Sit()
+pyxel.Wait(2)
 
 # Stand up
 print("Standing up...")
-pyxel.stand()
-pyxel.wait(1000)
+pyxel.StandUp()
+pyxel.Wait(1)
 
-# Wave goodbye
-print("Waving goodbye!")
-pyxel.wave()
-pyxel.wait(1000)
+# Shake paw goodbye
+print("Shaking paw goodbye!")
+pyxel.Shake()
+pyxel.Wait(2)
 
 print("Basic movements complete!")

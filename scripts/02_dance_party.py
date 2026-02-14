@@ -7,63 +7,57 @@ pyxel = Pyxel()
 
 print("🎉 Starting dance party! 🎉")
 
-# Start with some exciting LED colors
-pyxel.led_color(255, 0, 0)  # Red
-pyxel.wait(200)
+# Use the built-in dance!
+print("Watch me dance!")
+pyxel.Dance()
+pyxel.Wait(1)
 
-# Dance move 1: Spin around
+# Wiggle butt excitedly
+print("Wiggle wiggle!")
+pyxel.WiggleButt()
+pyxel.Wait(1)
+
+# Chase tail in a circle
+print("Chasing tail...")
+pyxel.ChaseTail(1)  # 1 = clockwise
+pyxel.Wait(1)
+
+# Another wiggle
+pyxel.WiggleButt()
+pyxel.Wait(1)
+
+# Wag tail at different speeds
+print("Tail wagging...")
+pyxel.Wag(1, 1, 3)  # Fast wag
+pyxel.Wait(2)
+
+# Shake paw
+print("Shake it!")
+pyxel.Shake()
+pyxel.Wait(2)
+
+# Spin around
 print("Spinning...")
 for i in range(4):
-    pyxel.turn_left(degrees=90)
-    pyxel.led_color(255, 0, 255)  # Purple
-    pyxel.wait(300)
+    pyxel.Turn(1, 90)  # Turn right 90 degrees
+    pyxel.Wait(0.3)
 
-# Dance move 2: Forward and back shuffle
+# Forward and back shuffle
 print("Shuffling...")
 for i in range(3):
-    pyxel.walk_forward(steps=1)
-    pyxel.led_color(0, 255, 0)  # Green
-    pyxel.wait(200)
-    pyxel.walk_backward(steps=1)
-    pyxel.led_color(0, 0, 255)  # Blue
-    pyxel.wait(200)
+    pyxel.Forward(2, 0, 0)
+    pyxel.Wait(0.2)
+    pyxel.Backward(2, 0, 0)
+    pyxel.Wait(0.2)
 
-# Dance move 3: The wave
-print("Waving...")
-for i in range(5):
-    pyxel.wave()
-    pyxel.led_color(255, 255, 0)  # Yellow
-    pyxel.wait(300)
+# Finale: Lightshow!
+print("Lightshow finale!")
+pyxel.Lightshow()
+pyxel.Wait(3)
 
-# Dance move 4: Turn and sit
-print("Turn and sit...")
-pyxel.turn_right(degrees=180)
-pyxel.led_color(255, 128, 0)  # Orange
-pyxel.wait(500)
-pyxel.sit()
-pyxel.wait(500)
-pyxel.stand()
-
-# Finale: Rainbow LED effect
-print("Rainbow finale!")
-colors = [
-    (255, 0, 0),    # Red
-    (255, 127, 0),  # Orange
-    (255, 255, 0),  # Yellow
-    (0, 255, 0),    # Green
-    (0, 0, 255),    # Blue
-    (75, 0, 130),   # Indigo
-    (148, 0, 211)   # Violet
-]
-
-for color in colors:
-    pyxel.led_color(*color)
-    pyxel.turn_left(degrees=51)  # Spin while showing rainbow
-    pyxel.wait(200)
-
-# End with celebration
-pyxel.play_sound("happy")
-pyxel.led_color(255, 255, 255)  # White
-pyxel.wait(1000)
+# End with celebration sound and wiggle
+pyxel.PlaySound(5, 1, 1)  # Happy sound
+pyxel.WiggleButt()
+pyxel.Wait(1)
 
 print("Dance party complete! 🎊")

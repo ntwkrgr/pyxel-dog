@@ -11,47 +11,42 @@ print("🎾 Let's play fetch!")
 
 def excited_wiggle():
     """Show excitement by wiggling"""
-    for i in range(3):
-        pyxel.turn_left(degrees=20)
-        pyxel.wait(200)
-        pyxel.turn_right(degrees=40)
-        pyxel.wait(200)
-        pyxel.turn_left(degrees=20)
-        pyxel.wait(200)
+    pyxel.WiggleButt()
+    pyxel.Wag(1, 1, 3)  # Fast tail wag
+    pyxel.Wait(1)
 
 def run_to_ball():
     """Run to fetch the ball"""
     print("Running to get the ball...")
-    pyxel.led_color(255, 255, 0)  # Yellow = focused
+    pyxel.Lights(3, 0)  # Yellow = focused
     
     # Random distance
-    steps = random.randint(5, 10)
-    pyxel.walk_forward(steps=steps)
-    pyxel.wait(500)
+    distance = random.randint(6, 12)
+    pyxel.Forward(distance, 0, 0)
+    pyxel.Wait(0.5)
 
 def bring_back():
     """Bring the ball back"""
     print("Bringing it back!")
-    pyxel.led_color(0, 255, 0)  # Green = success
+    pyxel.Lights(2, 0)  # Green = success
     
     # Turn around
-    pyxel.turn_left(degrees=180)
-    pyxel.wait(500)
+    pyxel.Turn(0, 180)  # Turn left 180 degrees
+    pyxel.Wait(0.5)
     
     # Come back
-    pyxel.walk_forward(steps=5)
-    pyxel.wait(500)
+    pyxel.Forward(8, 0, 0)
+    pyxel.Wait(0.5)
 
 def celebrate():
     """Celebrate successful fetch"""
     print("Good dog! 🎉")
-    pyxel.play_sound("happy")
-    pyxel.led_color(255, 0, 255)  # Purple = celebration
+    pyxel.PlaySound(5, 1, 1)  # Happy sound
+    pyxel.Lights(5, 0)  # Celebration color
     
     # Happy dance
-    for i in range(3):
-        pyxel.wave()
-        pyxel.wait(300)
+    pyxel.Shake()
+    pyxel.Wait(2)
     
     excited_wiggle()
 
@@ -64,23 +59,23 @@ for round_num in range(1, rounds + 1):
     # Get ready
     print("Get ready...")
     excited_wiggle()
-    pyxel.led_color(255, 165, 0)  # Orange = ready
-    pyxel.wait(1000)
+    pyxel.Lights(6, 0)  # Orange = ready
+    pyxel.Wait(1)
     
     # "Throw" the ball (simulate with random direction)
     print("🎾 Ball thrown!")
     direction = random.choice(["left", "right", "straight"])
     
     if direction == "left":
-        pyxel.turn_left(degrees=45)
+        pyxel.Turn(0, 45)  # Turn left 45 degrees
     elif direction == "right":
-        pyxel.turn_right(degrees=45)
+        pyxel.Turn(1, 45)  # Turn right 45 degrees
     
-    pyxel.wait(500)
+    pyxel.Wait(0.5)
     
     # Fetch!
     run_to_ball()
-    pyxel.wait(1000)
+    pyxel.Wait(1)
     
     # Bring back
     bring_back()
@@ -91,14 +86,14 @@ for round_num in range(1, rounds + 1):
     # Rest between rounds
     if round_num < rounds:
         print("Resting for next round...")
-        pyxel.sit()
-        pyxel.led_color(0, 0, 255)  # Blue = resting
-        pyxel.wait(2000)
-        pyxel.stand()
+        pyxel.Sit()
+        pyxel.Lights(4, 0)  # Blue = resting
+        pyxel.Wait(2)
+        pyxel.StandUp()
 
 # End game
 print("\n🏆 Fetch game complete! Great job!")
-pyxel.sit()
-pyxel.play_sound("happy")
-pyxel.led_color(0, 255, 0)
-pyxel.wait(2000)
+pyxel.Sit()
+pyxel.PlaySound(5, 1, 1)  # Happy sound
+pyxel.Lights(2, 0)  # Green
+pyxel.Wait(2)

@@ -15,6 +15,15 @@ from pyxel import Pyxel
 pyxel = Pyxel()
 ```
 
+Then use commands like:
+```python
+pyxel.Forward(6, 0, 0)  # Walk forward
+pyxel.Turn(1, 90)       # Turn right 90 degrees
+pyxel.Dance()           # Perform built-in dance
+pyxel.Lights(2, 0)      # Green lights on all parts
+pyxel.Wait(1)           # Wait 1 second
+```
+
 ## Available Scripts
 
 The `scripts/` directory contains 6 fun scripts:
@@ -34,11 +43,11 @@ Copy any script to your Pyxel dog editor and run it to see the behavior in actio
 
 ## Features
 
-- 🚶 Movement and navigation
-- 💡 LED light animations
-- 🎵 Sound effects
-- 🎯 Sensor-based behaviors
+- 🚶 Movement and navigation (Forward, Backward, Turn, Scoot)
+- 💡 LED light animations (Lights, Lightshow)
+- 🎵 Sound effects (PlaySound)
+- 🎯 Sensor-based behaviors (Proximity, Touch, Listen)
 - 🎮 Interactive games
-- 🎪 Dance routines
+- 🎪 Dance routines (Dance, WiggleButt, ChaseTail)
 
 Enjoy programming your Pyxel dog! 🎉
