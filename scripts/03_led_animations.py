@@ -4,6 +4,7 @@ Demonstrates various LED light patterns and animations
 """
 from pyxel import Pyxel
 import time
+import random
 
 pyxel = Pyxel()
 
@@ -65,7 +66,6 @@ for i in range(8):
 
 # Animation 6: Firefly effect (random soft glows)
 print("Firefly effect...")
-import random
 for i in range(20):
     r = random.randint(200, 255)
     g = random.randint(150, 200)
